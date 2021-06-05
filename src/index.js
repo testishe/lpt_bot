@@ -1,5 +1,5 @@
 const TelegramApi = require('node-telegram-bot-api')
-const token = require('./token')
+const token = process.env.TOKEN
 const { greaterText, scheduleText } = require('./text')
 
 const bot = new TelegramApi(token, {polling: true})
@@ -20,7 +20,7 @@ bot.on('message', msg => {
   const text = msg.text
   const chatId = msg.chat.id
   const chatType = msg.chat.type
-  console.log(text)
+  // console.log(text)
   if(text == '/start' || text == '/start@learning_together_bot'){
     bot.sendMessage(chatId, greaterText)
   }
@@ -35,6 +35,5 @@ bot.on('message', msg => {
   }
   // console.log(msg)
 })
-// console.dir(bot.on.toString(), {depth: 0})
 
 bot.on('poll', (msg) => console.log(msg))
