@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "eval $(cat ./.env) && nodemon src/index.js",
+    "dev": "export $(cat ./.env) && nodemon src/index.js",
     "start": "node src/index.js"
   },
   "keywords": [],

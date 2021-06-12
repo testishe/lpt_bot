@@ -1,8 +1,8 @@
 const TelegramApi = require('node-telegram-bot-api')
-const token = process.env.TOKEN
+const TOKEN = process.env.TOKEN
 const { greaterText, scheduleText } = require('./text')
 
-const bot = new TelegramApi(token, {polling: true})
+const bot = new TelegramApi(TOKEN, {polling: true})
 
 const commandGroups = [
   {command: '/schedule', description: 'Узнать расписание'}
@@ -35,5 +35,3 @@ bot.on('message', msg => {
   }
   // console.log(msg)
 })
-
-bot.on('poll', (msg) => console.log(msg))
